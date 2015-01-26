@@ -113,8 +113,8 @@ function transformOptions(sourceOptions, start, end, timezone, calendar) {
 
 	data = $.extend({}, sourceOptions.data || {}, {
 		key: apiKey,
-		timeMin: start.format(),
-		timeMax: end.format(),
+		timeMin: new moment(start).format(),
+		timeMax: new moment(end).format(),
 		timeZone: timezoneArg,
 		singleEvents: true,
 		maxResults: 9999
