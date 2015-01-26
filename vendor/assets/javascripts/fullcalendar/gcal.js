@@ -110,7 +110,7 @@ function transformOptions(sourceOptions, start, end, timezone, calendar) {
 	if (timezone && timezone != 'local') {
 		timezoneArg = timezone.replace(' ', '_');
 	}
-
+	// date fix for include time info
 	data = $.extend({}, sourceOptions.data || {}, {
 		key: apiKey,
 		timeMin: new moment(start).format(),
