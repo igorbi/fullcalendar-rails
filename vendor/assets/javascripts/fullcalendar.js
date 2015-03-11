@@ -21,7 +21,7 @@
 var fc = $.fullCalendar = { version: "2.3.1" };
 var fcViews = fc.views = {};
 
-
+window.FullCalendar = fc
 $.fn.fullCalendar = function(options) {
 	var args = Array.prototype.slice.call(arguments, 1); // for a possible method call
 	var res = this; // what this function will return (this jQuery object by default)
