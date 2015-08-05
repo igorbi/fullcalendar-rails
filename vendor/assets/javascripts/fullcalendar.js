@@ -1647,7 +1647,7 @@ var Popover = Class.extend({
 		});
 
 		if (options.autoHide) {
-			$(document).on('mousedown', this.documentMousedownProxy = proxy(this, 'documentMousedown'));
+			$(document).on('mousedown touchstart', this.documentMousedownProxy = proxy(this, 'documentMousedown'));
 		}
 	},
 
@@ -1670,7 +1670,7 @@ var Popover = Class.extend({
 			this.el = null;
 		}
 
-		$(document).off('mousedown', this.documentMousedownProxy);
+		$(document).off('mousedown touchstart', this.documentMousedownProxy);
 	},
 
 
@@ -3049,7 +3049,7 @@ var Grid = fc.Grid = RowRenderer.extend({
 
 		// attach a handler to the grid's root element.
 		// jQuery will take care of unregistering them when removeElement gets called.
-		el.on('mousedown', function(ev) {
+		el.on('mousedown touchstart', function(ev) {
 			if (
 				!$(ev.target).is('.fc-event-container *, .fc-more') && // not an an event element, or "more.." link
 				!$(ev.target).closest('.fc-popover').length // not on a popover (like the "more.." events one)
@@ -6909,13 +6909,13 @@ var View = fc.View = Class.extend({
 
 	// Binds DOM handlers to elements that reside outside the view container, such as the document
 	bindGlobalHandlers: function() {
-		$(document).on('mousedown', this.documentMousedownProxy);
+		$(document).on('mousedown touchstart', this.documentMousedownProxy);
 	},
 
 
 	// Unbinds DOM handlers from elements that reside outside the view container
 	unbindGlobalHandlers: function() {
-		$(document).off('mousedown', this.documentMousedownProxy);
+		$(document).off('mousedown touchstart', this.documentMousedownProxy);
 	},
 
 
